@@ -1,0 +1,35 @@
+BUILDER-DONE
+Contest: best-spot-the-difference-game-20261121-0451 ($50, deadline 21 Nov 2026 23:51 WIB)
+Entry: Spot the Difference — Lighthouse Bay, Night Market, Mushroom Forest
+
+What was built:
+- Complete spot-the-difference game, offline static files, no assets/network.
+- 3 original scenes drawn in code: Lighthouse Bay (8 diffs, 3:00), Night Market
+  (10 diffs, 2:30), Mushroom Forest (12 diffs, 2:00) — 30 differences total.
+- Click either picture to mark; green ring + check on both panels; found
+  counter, timer, score, combo bonus, hints (H, 3/level, -15s), wrong click -5s,
+  time bonus, level-complete / win / game-over overlays, WebAudio synth sounds.
+- Source split one-job-per-file: config, scenes, state, render, input, audio,
+  shots, main (9 files, 1,360 lines, 46,023 bytes).
+- main.ts (Node 22, stdlib only) copies game/ + screenshots/ and writes
+  dossier.json via vendor/makefun-game.ts (kit copy, byte-identical).
+
+Measurements:
+- Screenshots (1280x800 JPEG, real Playwright renders): 1-cover 83,225 B;
+  2-play 86,833 B; 3-forest 80,104 B; 4-win 61,539 B (all < 256 KiB cap).
+- dossier.json 464,297 B (cap 1.5 MiB). game/ 10 entries, 46,023 B.
+- Full playtest: all 30 differences clicked and found (8/8, 10/10, 12/12),
+  game completable, final score 10,745. Wrong click -5s verified, hint verified.
+  Zero console/page errors, zero failed requests.
+- Determinism: two main.ts runs to different output dirs byte-identical (diff -r clean).
+
+SHA-256:
+- 1-cover.jpg efee79a0703ee1ba155502f9cf21fb82744fc8cadbe1ccfe805ea5130b2a1ec1
+- 2-play.jpg e33f5c4f844c3f9ef8575972252138e59598e78c0e166b133cb6036c55e1e328
+- 3-forest.jpg 36f3984ddf4351970a5f31343e2408220e30bc5a01b94db5ab98adf998915ab0
+- 4-win.jpg 159a17535d88779e8b628bd7125528771b93c27be49d110138a038f601f6ff35
+- dossier.json d885419d6c13c3e5d1b686eb4f46bf57d0fb2c2789766798ecc222f9987fbc45
+
+Commit: f9b56ffad030ed3805e66bfca2c43a203b301e04 (local only)
+Status: NOT pushed, NO GitHub repo created, NOT submitted — parent agent's steps.
+Path: ~/workspace/makefun/entries/best-spot-the-difference-game-20261121-0451/
